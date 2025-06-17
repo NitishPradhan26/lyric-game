@@ -1,11 +1,86 @@
+:root {
+  --primary-color: #2D3250;
+  --secondary-color: #424769;
+  --accent-color: #676F9D;
+  --text-color: #F9F9F9;
+  --background-color: #1A1B26;
+  --success-color: #4CAF50;
+  --error-color: #f44336;
+  --glitter-color: #10b981;
+}
+
 .music-player {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating particles */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, var(--accent-color), var(--text-color));
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Glitter effect */
+.glitter-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 30;
+}
+
+.glitter-particle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, var(--glitter-color), #34d399);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.4);
+  animation: glitter 2s ease-out forwards;
+}
+
+/* Music visualizer */
+.visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  height: 80px;
   padding: 1rem;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.visualizer-bar {
+  width: 6px;
+  background: linear-gradient(to top, var(--accent-color), var(--text-color));
+  border-radius: 3px;
+  transition: height 0.2s ease-out;
 }
 
 .controls {
@@ -43,23 +118,29 @@
 }
 
 .play-pause-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  margin: 4px 2px;
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 12px;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .play-pause-button:hover {
-  background-color: #45a049;
+  background: #7A84B5;
+  transform: translateY(-2px);
 }
 
 .play-pause-button:active {
-  background-color: #3d8b40;
+  transform: translateY(0);
 }
 
 .error-message {
@@ -69,4 +150,176 @@
   border: 1px solid #f5c6cb;
   border-radius: 4px;
   margin: 0.5rem 0;
+}
+
+.resume-section {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resume-section p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.resume-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #45a049;
+}
+
+.resume-button:active {
+  background-color: #3d8b40;
+}
+
+.choices-section {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  opacity: 1;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideIn 0.5s ease-out;
+}
+
+.choices-section.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.choices-section p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.choice-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.choice-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.choice-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.choice-button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.choice-button.correct {
+  background: var(--success-color);
+  border-color: var(--success-color);
+  animation: correctAnswer 1s ease-out forwards;
+}
+
+.choice-button.incorrect {
+  background: var(--error-color);
+  border-color: var(--error-color);
+  animation: incorrectAnswer 1s ease-out forwards;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glitter {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes correctAnswer {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes incorrectAnswer {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 } 
