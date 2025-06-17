@@ -208,6 +208,16 @@ const MusicPlayer = () => {
         </div>
       )}
 
+      <h1 className="creative-heading">🎤 Finish the Line!</h1>
+      {/* Progress bar */}
+      <div className="progress-bar">
+        <div
+          className="progress-bar-inner"
+          style={{ width: `${Math.min((currentTime / (sound?.duration() || 1)) * 100, 100)}%` }}
+        />
+      </div>
+      {/* Song title */}
+      <div className="song-title">Beatles <span className="song-dash">–</span> <span className="song-name">Let it be</span></div>
       {/* Music visualizer */}
       <div className="visualizer">
         {visualizerBars.map((height, index) => (

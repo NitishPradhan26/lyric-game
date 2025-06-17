@@ -2,7 +2,7 @@
   --primary-color: #2D3250;
   --secondary-color: #424769;
   --accent-color: #676F9D;
-  --text-color: #F9F9F9;
+  --text-color: #000000;
   --background-color: #1A1B26;
   --success-color: #4CAF50;
   --error-color: #f44336;
@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2.5rem;
-  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+  background: #F0E3D0;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   width: 100%;
@@ -24,6 +24,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  color: black;
 }
 
 /* Floating particles */
@@ -78,7 +79,15 @@
 
 .visualizer-bar {
   width: 6px;
-  background: linear-gradient(to top, var(--accent-color), var(--text-color));
+  background: linear-gradient(
+    to top,
+    #ff0000 0%,   /* red */
+    #ff9900 20%,  /* orange */
+    #ffee00 40%,  /* yellow */
+    #33ff00 60%,  /* green */
+    #00cfff 80%,  /* blue */
+    #a259ff 100%  /* violet */
+  );
   border-radius: 3px;
   transition: height 0.2s ease-out;
 }
@@ -196,7 +205,7 @@
   width: 100%;
   max-width: 400px;
   opacity: 1;
-  transition: all 0.3s ease;
+  transition: all 0.7s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
   animation: slideIn 0.5s ease-out;
 }
@@ -322,4 +331,72 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.song-title {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #8B3A3A;
+  text-align: center;
+  margin: 1.2rem 0 0.7rem 0;
+  letter-spacing: 0.03em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+.song-title::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffb6b9 0%, #ffecd2 100%);
+  border-radius: 2px;
+  margin: 0.4rem auto 0 auto;
+  position: absolute;
+  left: 20%;
+  bottom: -8px;
+  opacity: 0.7;
+}
+.song-dash {
+  color: #ff6a3d;
+  font-size: 1.2em;
+  font-weight: 900;
+  margin: 0 0.2em;
+}
+.song-name {
+  color: #ff6a3d;
+  font-family: 'Georgia', serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px #ffe29f44;
+}
+
+.creative-heading {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2D3250;
+  text-align: center;
+  margin: 0 0 1.2rem 0;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, #2D3250 0%, #424769 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+.creative-heading::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #2D3250 0%, #424769 100%);
+  border-radius: 2px;
+  margin: 0.4rem auto 0 auto;
+  opacity: 0.5;
 } 

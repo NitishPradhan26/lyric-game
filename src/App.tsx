@@ -5,7 +5,8 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <h1>Music Player</h1>
+        <h1><span role="img" aria-label="music">🎵</span> Guess the Lyrics</h1>
+        <div style={{ height: '3.5rem' }} />
         <MusicPlayer />
       </div>
     </>
