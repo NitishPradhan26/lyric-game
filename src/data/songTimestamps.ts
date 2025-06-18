@@ -6,7 +6,7 @@ export interface Timestamp {
 
 export const songTimestamps: Timestamp[] = [
   { 
-    timestamp: 23, 
+    timestamp: 22, 
     nextThreeWords: "Let it be",
     choices: [
       "Let it be",
