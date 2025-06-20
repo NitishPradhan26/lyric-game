@@ -22,7 +22,9 @@
 
 ## 🔥 Demo
 
-Coming soon!
+![Demo Video](src/assets/video1414590618.mp4)
+
+*Watch the demo video to see Lyric Master in action!*
 
 ---
 
